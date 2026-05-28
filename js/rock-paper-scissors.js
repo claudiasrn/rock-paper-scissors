@@ -51,7 +51,7 @@ function determineWinner(humanChoice, computerChoice) {
                 break;
         }
     } else {
-        switch(computerChoice) {
+        switch(humanChoice) {
             case "paper":
                 winner = "computer";
                 break;
