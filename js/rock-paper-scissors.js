@@ -83,11 +83,11 @@ function printRoundWinner(humanChoice, computerChoice, winner) {
 
 function printGameWinner(humanScore, computerScore){
     if (humanScore === computerScore) {
-        console.log("Its a draw!");
+        console.log(`The game is a draw! You both scored ${humanScore}`);
     } else if (humanScore > computerScore) {
-        console.log("You win!");
+        console.log(`You won the game! ${humanScore} to ${computerScore}`);
     } else {
-        console.log("You lose!");
+        console.log(`You lost the game! ${humanScore} to ${computerScore}`);
     }
 }
 
