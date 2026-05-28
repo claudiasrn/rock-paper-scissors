@@ -81,5 +81,22 @@ function printWinner(humanChoice, computerChoice, winner) {
     }   
 }
 
+function playRound() {
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
 
+    let winner = determineWinner(humanChoice, computerChoice);
+    printWinner(humanChoice, computerChoice, winner);
+    
+    if (winner === "human") {
+        humanScore++;
+    }
+
+    if (winner === "computer") {
+        computerScore++;
+    }
+}
+
+let humanScore = 0;
+let computerScore = 0;
 
