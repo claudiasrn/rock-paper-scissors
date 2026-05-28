@@ -67,7 +67,7 @@ function determineWinner(humanChoice, computerChoice) {
     return winner;
 }
 
-function printWinner(humanChoice, computerChoice, winner) {
+function printRoundWinner(humanChoice, computerChoice, winner) {
     switch(winner) {
         case "draw":
             console.log(`It's a draw! You both picked ${humanChoice}.`);
@@ -81,22 +81,41 @@ function printWinner(humanChoice, computerChoice, winner) {
     }   
 }
 
-function playRound() {
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
-
-    let winner = determineWinner(humanChoice, computerChoice);
-    printWinner(humanChoice, computerChoice, winner);
-    
-    if (winner === "human") {
-        humanScore++;
-    }
-
-    if (winner === "computer") {
-        computerScore++;
+function printGameWinner(humanScore, computerScore){
+    if (humanScore === computerScore) {
+        console.log("Its a draw!");
+    } else if (humanScore > computerScore) {
+        console.log("You win!");
+    } else {
+        console.log("You lose!");
     }
 }
 
-let humanScore = 0;
-let computerScore = 0;
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
 
+    function playRound() {
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+
+        let winner = determineWinner(humanChoice, computerChoice);
+        printRoundWinner(humanChoice, computerChoice, winner);
+    
+        if (winner === "human") {
+            humanScore++;
+        }
+
+        if (winner === "computer") {
+            computerScore++;
+        }
+    }
+
+    for (let i = 1; i <= 5; i++) {
+        playRound();
+    }
+
+    printGameWinner(humanScore, computerScore);
+}
+
+playGame();
