@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <script src="js/rock-paper-scissors.js" defer></script>
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
     <div class="header">
         <h1>ROCK PAPER SCISSORS</h1>
     </div>
-    <div class="game">
+    <div class="scoreboard-container">
         <div class="scoreboard">
             <h2 class="human"> YOU </h2>
             <p class="human-score"> 0 </p>
@@ -20,5 +21,18 @@
             <h2 class="cpu"> CPU </h2>
         </div>
     </div>
+    <h2 class="msg">Choose your weapon!</h2>
+    <div class="buttons-container">
+        <button class="rock-button">
+            <img class="rock" src="img/rock.png" alt="rock">
+        </button>
+        <button class="paper-button">
+            <img class="paper" src="img/paper.png" alt="paper">
+        </button>
+        <button class="scissors-button">
+            <img class="scissors" src="img/scissors.png" alt="scissors">
+        </button>
+    </div>
+
 </body>
 </html>
