@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getRandomNumberBetweenZeroAndTwo() {
     return Math.floor(Math.random() * 3);
 }
@@ -17,10 +20,6 @@ function getComputerChoice() {
             break;
     }
     return computerChoice;
-}
-
-function getHumanChoice() {
-    return prompt("Rock, paper, or scissors?", "Paper").toLowerCase();
 }
 
 function determineWinner(humanChoice, computerChoice) {
@@ -68,15 +67,23 @@ function determineWinner(humanChoice, computerChoice) {
 }
 
 function printRoundWinner(humanChoice, computerChoice, winner) {
+    const msg = document.querySelector(".msg");
+    
     switch(winner) {
         case "draw":
-            console.log(`It's a draw! You both picked ${humanChoice}.`);
+            msg.textContent = `It's a draw! You both picked ${humanChoice}`;
+            msg.style.backgroundColor = "#7b3fe4";
+            msg.style.color = "white"
             break;
         case "human":
-            console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+            msg.textContent = `You win! ${humanChoice} beats ${computerChoice}.`;
+            msg.style.backgroundColor = "#1db860";
+            msg.style.color = "black"
             break;
         case "computer":
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+            msg.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`;
+            msg.style.backgroundColor = "#e8322a";
+            msg.style.color = "white"
             break;
     }   
 }
@@ -91,19 +98,54 @@ function printGameWinner(humanScore, computerScore){
     }
 }
 
-function playRound() {
-    let humanChoice = getHumanChoice();
+function addPoint(winner) {
+    if (winner === "draw") return;
+    else if (winner === "human"){
+        humanScore++;
+        const score = document.querySelector(".human-score");
+        score.textContent = humanScore;
+    } else {
+        computerScore++;
+        const score = document.querySelector(".cpu-score");
+        score.textContent = computerScore;
+    }
+}
+
+
+function playRound(humanChoice) {
     let computerChoice = getComputerChoice();
 
     let winner = determineWinner(humanChoice, computerChoice);
     printRoundWinner(humanChoice, computerChoice, winner);
-    
-    if (winner === "human") {
-        humanScore++;
-    }
 
-    if (winner === "computer") {
-        computerScore++;
+    addPoint(winner);
+            
+    setTimeout ( () => {
+        const msg = document.querySelector(".msg");
+        msg.textContent = "Choose your weapon!";
+        msg.style.backgroundColor = "black";
+        msg.style.color = "#f5c200";
+        }, 800);
+
+    if (humanScore === 5 || computerScore === 5) {
+
+        const scoreHuman = document.querySelector(".human-score");
+        scoreHuman.textContent = "0";
+
+        const scoreCPU = document.querySelector(".cpu-score");
+        scoreCPU.textContent = "0";
+
+        printGameWinner(humanScore, computerScore)
+
+        humanScore = 0;
+        computerScore = 0;
     }
 }
 
+const paperBtn = document.querySelector(".paper-button");
+const scissorsBtn = document.querySelector(".scissors-button");
+const rockBtn = document.querySelector(".rock-button");
+
+paperBtn.addEventListener("click", () => playRound("paper"));
+scissorsBtn.addEventListener("click", () => playRound("scissors"));
+rockBtn.addEventListener("click", () => playRound("rock"));
