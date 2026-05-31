@@ -91,31 +91,19 @@ function printGameWinner(humanScore, computerScore){
     }
 }
 
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
+function playRound() {
+    let humanChoice = getHumanChoice();
+    let computerChoice = getComputerChoice();
 
-    function playRound() {
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-
-        let winner = determineWinner(humanChoice, computerChoice);
-        printRoundWinner(humanChoice, computerChoice, winner);
+    let winner = determineWinner(humanChoice, computerChoice);
+    printRoundWinner(humanChoice, computerChoice, winner);
     
-        if (winner === "human") {
-            humanScore++;
-        }
-
-        if (winner === "computer") {
-            computerScore++;
-        }
+    if (winner === "human") {
+        humanScore++;
     }
 
-    for (let i = 1; i <= 5; i++) {
-        playRound();
+    if (winner === "computer") {
+        computerScore++;
     }
-
-    printGameWinner(humanScore, computerScore);
 }
 
-playGame();
