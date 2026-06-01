@@ -89,12 +89,35 @@ function printRoundWinner(humanChoice, computerChoice, winner) {
 }
 
 function printGameWinner(humanScore, computerScore){
-    if (humanScore === computerScore) {
-        console.log(`The game is a draw! You both scored ${humanScore}`);
-    } else if (humanScore > computerScore) {
-        console.log(`You won the game! ${humanScore} to ${computerScore}`);
+    const game = document.querySelector(".game");
+    game.style.display = "none";
+
+    const endScreen = document.querySelector(".end-screen");
+    endScreen.style.display = "flex";
+
+    const finalScore = document.querySelector(".final-score")
+    finalScore.textContent = `YOU ${humanScore} - CPU ${computerScore}`
+
+    if (humanScore > computerScore) {
+        endScreen.style.backgroundColor = "#1db860";
+        endScreen.style.color = "black";
+
+        const finalMessage = document.querySelector(".final-message");
+        finalMessage.textContent = "YOU WON THE GAME!"
+
+        const resultImage = document.querySelector(".result-image");
+        resultImage.src = "img/win.png";
+        resultImage.alt = "thumbs-up";
     } else {
-        console.log(`You lost the game! ${humanScore} to ${computerScore}`);
+        endScreen.style.backgroundColor = "#e8322a";
+        endScreen.style.color = "white";
+
+        const finalMessage = document.querySelector(".final-message");
+        finalMessage.textContent = "YOU LOST THE GAME!"
+
+        const resultImage = document.querySelector(".result-image");
+        resultImage.src = "img/lose.png";
+        resultImage.alt = "thumbs-down";
     }
 }
 
@@ -145,7 +168,15 @@ function playRound(humanChoice) {
 const paperBtn = document.querySelector(".paper-button");
 const scissorsBtn = document.querySelector(".scissors-button");
 const rockBtn = document.querySelector(".rock-button");
+const playBtn = document.querySelector(".play-again");
 
 paperBtn.addEventListener("click", () => playRound("paper"));
 scissorsBtn.addEventListener("click", () => playRound("scissors"));
 rockBtn.addEventListener("click", () => playRound("rock"));
+playBtn.addEventListener("click", () => {
+    const game = document.querySelector(".game");
+    game.style.display = "flex";
+
+    const endScreen = document.querySelector(".end-screen");
+    endScreen.style.display = "none";
+})
