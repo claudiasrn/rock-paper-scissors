@@ -1,10 +1,10 @@
 # Rock Paper Scissors
 
-A simple Rock Paper Scissors game played in the browser console.
+A browser-based Rock Paper Scissors game with a colorful pop art design.
 
 ## How to Play
 
-Open the console and run `playGame()`. You will be prompted to enter your choice 5 times. The player with the most points after 5 rounds wins.
+Open the game in your browser and click one of the three hand gesture buttons to make your choice. First to reach 5 points wins.
 
 ## Rules
 
