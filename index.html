@@ -12,27 +12,39 @@
     <div class="header">
         <h1>ROCK PAPER SCISSORS</h1>
     </div>
-    <div class="scoreboard-container">
-        <div class="scoreboard">
-            <h2 class="human"> YOU </h2>
-            <p class="human-score"> 0 </p>
-            <p class="vs">vs</p>
-            <p class="cpu-score"> 0 </p>
-            <h2 class="cpu"> CPU </h2>
+
+    <div class="game">
+        <div class="scoreboard-container">
+            <div class="scoreboard">
+                <h2 class="human"> YOU </h2>
+                <p class="human-score"> 0 </p>
+                <p class="vs">vs</p>
+                <p class="cpu-score"> 0 </p>
+                <h2 class="cpu"> CPU </h2>
+            </div>
+        </div>
+        <h2 class="msg">Choose your weapon!</h2>
+        <div class="buttons-container">
+            <button class="rock-button">
+                <img class="rock" src="img/rock.png" alt="rock">
+            </button>
+            <button class="paper-button">
+                <img class="paper" src="img/paper.png" alt="paper">
+            </button>
+            <button class="scissors-button">
+                <img class="scissors" src="img/scissors.png" alt="scissors">
+            </button>
         </div>
     </div>
-    <h2 class="msg">Choose your weapon!</h2>
-    <div class="buttons-container">
-        <button class="rock-button">
-            <img class="rock" src="img/rock.png" alt="rock">
-        </button>
-        <button class="paper-button">
-            <img class="paper" src="img/paper.png" alt="paper">
-        </button>
-        <button class="scissors-button">
-            <img class="scissors" src="img/scissors.png" alt="scissors">
-        </button>
-    </div>
 
+    <div class="end-screen">
+        <img class="result" src="img/win.png" alt ="thumbs-up">
+        <div class="container">
+            <h2>YOU WON THE GAME!</h2>
+            <h3>Final Score</h3>
+            <p>YOU 5 - CPU 4</p>
+            <button>Play again!</button>
+        </div>
+    </div>
 </body>
 </html>
